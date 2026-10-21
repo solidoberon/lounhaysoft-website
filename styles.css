@@ -1,0 +1,370 @@
+/* Χρώματα από το λογότυπο: σκούρο #1d1c1b, κόκκινο #da0a0b, λευκό */
+@font-face {
+  font-family: "Play";
+  src: url("fonts/play-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Play";
+  src: url("fonts/play-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #121110;
+  --panel: #191817;
+  --line: #2e2c2a;
+  --line-strong: #46423e;
+  --text: #f2efea;
+  --muted: #a9a39c;
+  --red: #da0a0b;
+  --red-text: #ff6b6d;
+  --link: #ff8a8a;
+  --ph-bg: #3d3200;
+  --ph-text: #ffe9a3;
+  --ph-border: #c9a400;
+  --radius: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Play", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a { color: var(--link); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 700;
+  border-radius: 8px;
+}
+.skip-link:focus { top: 1rem; }
+
+.draft-banner {
+  background: var(--ph-bg);
+  color: var(--ph-text);
+  border-bottom: 1px solid var(--ph-border);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Μπάρα πλοήγησης */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18, 17, 16, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.mark img { width: 32px; height: 32px; border-radius: 8px; }
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-list a:hover { color: var(--text); border-bottom-color: var(--red); }
+
+main:focus { outline: none; }
+
+/* Κεντρική ενότητα: πλέγμα που σβήνει προς τα άκρα και κόκκινη λάμψη */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 3.5rem 0 3rem;
+  text-align: center;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 30%, transparent 75%);
+}
+/* Η λάμψη ξεκινά πίσω από το λογότυπο. Το glow.js τη μετακινεί με τον κέρσορα
+   μέσω των --gx/--gy και την επαναφέρει όταν ο κέρσορας φύγει. */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 46rem;
+  height: 26rem;
+  transform: translate(calc(var(--gx, 50vw) - 50%), calc(var(--gy, 11rem) - 50%));
+  background: radial-gradient(closest-side, rgba(218, 10, 11, 0.16), transparent);
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+.hero.is-following::after { transition-duration: 0.35s; }
+
+.hero-logo {
+  display: block;
+  width: min(300px, 70vw);
+  height: auto;
+  margin: 0 auto 2rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+/* Κόκκινη γραμμή με εγκοπή, όπως η υπογράμμιση του λογοτύπου */
+.notch-rule {
+  width: min(22rem, 80%);
+  height: 4px;
+  margin: 0 auto;
+  background: linear-gradient(90deg,
+    var(--red) 0 58%, transparent 58% 63%, var(--red) 63% 100%);
+  border-radius: 1px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 44rem;
+  margin: 2.5rem auto 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.facts li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem 1rem;
+  background: rgba(25, 24, 23, 0.8);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+}
+.facts li::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  bottom: -1px;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--red);
+}
+.label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.value { font-weight: 700; overflow-wrap: anywhere; }
+
+/* Ενότητες */
+.sections { padding-bottom: 3rem; }
+
+.panel {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+/* Γωνιακή κόκκινη λεπτομέρεια, όπως το κόκκινο περίγραμμα του εικονιδίου */
+.panel::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 3rem;
+  height: 3rem;
+  border-top: 2px solid var(--red);
+  border-left: 2px solid var(--red);
+  border-top-left-radius: var(--radius);
+  pointer-events: none;
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+.idx {
+  color: var(--red-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+h3 {
+  margin: 2rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.details { margin: 0; }
+.details > div {
+  display: grid;
+  grid-template-columns: minmax(10rem, 15rem) 1fr;
+  gap: 0.15rem 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.details > div:last-child { border-bottom: 0; }
+.details dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+.details dd { margin: 0; overflow-wrap: anywhere; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #3ddc84;
+  box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.18);
+}
+
+.docs { list-style: none; margin: 0 0 1rem; padding: 0; }
+.docs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.docs time { color: var(--muted); min-width: 7.5rem; font-size: 0.95rem; }
+.docs a { flex: 1 1 16rem; }
+.tag {
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.muted { color: var(--muted); font-size: 0.95rem; }
+
+/* Επισήμανση πεδίων προς συμπλήρωση (μόνο για το προσχέδιο) */
+.ph {
+  background: var(--ph-bg);
+  color: var(--ph-text);
+  outline: 1px dashed var(--ph-border);
+  padding: 0 0.3em;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.site-footer {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.footer-logo { display: block; width: 120px; height: auto; margin: 0 auto 1.25rem; }
+.site-footer p { margin: 0.25rem 0; }
+
+@media (max-width: 40rem) {
+  .facts { grid-template-columns: 1fr; }
+  .details > div { grid-template-columns: 1fr; gap: 0; }
+  .panel { padding: 1.25rem 1rem 1.5rem; }
+  .hero { padding-top: 2.5rem; }
+  .nav-list { gap: 0 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+}
