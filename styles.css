@@ -164,7 +164,45 @@ main:focus { outline: none; }
 :root { --topbar-height: 3rem; }
 html { scroll-padding-top: calc(var(--topbar-height) + 1.5rem); }
 
-/* Hero: grid that fades towards the edges, plus a red glow */
+/* Page-wide grid behind everything, fading towards the sides. Brighter lines every
+   4 cells give the eye something to follow. grid-parallax.js moves it against the
+   scroll direction; the layer is one 128px tile taller than the screen so the shift
+   never shows an empty strip. */
+.grid-backdrop {
+  position: fixed;
+  inset: 0 0 -128px;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    repeating-linear-gradient(rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 32px);
+  background-size: 128px 128px;
+  background-position: center top;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Shade over the grid: a vignette that darkens the edges and corners of the screen,
+   plus a fade that darkens most of the screen down to black at the bottom.
+   It stays fixed to the screen while scrolling, so the effect is always visible.
+   As body::after it paints above the grid but below the hero and panels. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 85% 80% at 50% 40%, transparent 50%, rgba(0, 0, 0, 0.6) 100%),
+    linear-gradient(to bottom, transparent 15%, #000 100%);
+  pointer-events: none;
+}
+
+/* Hero: sits on the page grid, plus a red glow. The glow may spill above and below
+   the hero, but is clipped at the sides so the page never scrolls sideways.
+   Browsers without overflow-x: clip keep the glow clipped to the hero. */
 .hero {
   position: relative;
   overflow: hidden;
@@ -172,18 +210,8 @@ html { scroll-padding-top: calc(var(--topbar-height) + 1.5rem); }
   text-align: center;
   isolation: isolate;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: center top;
-  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 30%, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 30%, transparent 75%);
+@supports (overflow-x: clip) {
+  .hero { overflow: visible; overflow-x: clip; }
 }
 /* The glow starts behind the logo. glow.js moves it with the cursor
    through --gx/--gy and puts it back when the cursor leaves. */

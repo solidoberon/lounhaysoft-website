@@ -8,5 +8,6 @@ Static company website of KARELIOTIS NIKOLAOS ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε., 
 - `styles.css` – styling (designed for WCAG 2.2 AA)
 - `glow.js` – the red glow that follows the cursor
 - `topbar.js` – keeps section titles clear of the sticky top bar after a jump
+- `grid-parallax.js` – moves the background grid against the scroll direction (parallax)
 - `logo.svg`, `favicon.svg` – logo and icon
 - `fonts/` – Play typeface (SIL Open Font License, see `fonts/OFL.txt`)
