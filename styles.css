@@ -69,15 +69,6 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .skip-link:focus { top: 1rem; }
 
-.draft-banner {
-  background: var(--ph-bg);
-  color: var(--ph-text);
-  border-bottom: 1px solid var(--ph-border);
-  padding: 0.5rem 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
 /* Μπάρα πλοήγησης */
 .topbar {
   position: sticky;
