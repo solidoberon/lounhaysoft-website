@@ -22,9 +22,6 @@
   --red: #da0a0b;
   --red-text: #ff6b6d;
   --link: #ff8a8a;
-  --ph-bg: #3d3200;
-  --ph-text: #ffe9a3;
-  --ph-border: #c9a400;
   --radius: 16px;
 }
 
@@ -324,16 +321,6 @@ h3 {
 }
 
 .muted { color: var(--muted); font-size: 0.95rem; }
-
-/* Επισήμανση πεδίων προς συμπλήρωση (μόνο για το προσχέδιο) */
-.ph {
-  background: var(--ph-bg);
-  color: var(--ph-text);
-  outline: 1px dashed var(--ph-border);
-  padding: 0 0.3em;
-  border-radius: 3px;
-  font-weight: 400;
-}
 
 .site-footer {
   padding: 2rem 0 2.5rem;
