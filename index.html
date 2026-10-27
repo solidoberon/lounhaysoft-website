@@ -7,6 +7,8 @@
   <meta name="description" content="Εταιρική ιστοσελίδα της KARELIOTIS NIKOLAOS ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε. (Lounhaysoft) σύμφωνα με το άρθρο 47 του ν. 4072/2012.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#121110">
+  <link rel="alternate" hreflang="el" href="./">
+  <link rel="alternate" hreflang="en" href="en/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/play-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/play-bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,12 +24,20 @@
         <img src="favicon.svg" alt="" width="32" height="32">
         <span lang="en">Lounhaysoft</span>
       </a>
-      <nav aria-label="Κύρια πλοήγηση">
-        <ul class="nav-list">
-          <li><a href="#stoixeia">Στοιχεία</a></li>
-          <li><a href="#anakoinoseis">Ανακοινώσεις</a></li>
-        </ul>
-      </nav>
+      <div class="topbar-end">
+        <nav aria-label="Κύρια πλοήγηση">
+          <ul class="nav-list">
+            <li><a href="#stoixeia">Στοιχεία</a></li>
+            <li><a href="#anakoinoseis">Ανακοινώσεις</a></li>
+          </ul>
+        </nav>
+        <nav class="lang-switch" aria-label="Γλώσσα">
+          <ul>
+            <li><a href="./" aria-current="page" title="Ελληνικά">ΕΛ</a></li>
+            <li><a href="en/" lang="en" hreflang="en" title="English">EN</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 

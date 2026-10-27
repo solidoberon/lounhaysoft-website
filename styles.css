@@ -119,6 +119,40 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .nav-list a:hover { color: var(--text); border-bottom-color: var(--red); }
 
+.topbar-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.5rem;
+}
+
+/* Επιλογή γλώσσας: η τρέχουσα γλώσσα επισημαίνεται με κόκκινο φόντο */
+.lang-switch ul {
+  display: flex;
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: color 0.15s, background-color 0.15s;
+}
+.lang-switch a:hover { color: var(--text); }
+.lang-switch a[aria-current="page"] { background: var(--red); color: #fff; }
+
 main:focus { outline: none; }
 
 /* Κεντρική ενότητα: πλέγμα που σβήνει προς τα άκρα και κόκκινη λάμψη */
@@ -338,6 +372,7 @@ h3 {
   .panel { padding: 1.25rem 1rem 1.5rem; }
   .hero { padding-top: 2.5rem; }
   .nav-list { gap: 0 1rem; }
+  .topbar-end { gap: 0 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
