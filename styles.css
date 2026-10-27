@@ -372,7 +372,10 @@ h3 {
   .panel { padding: 1.25rem 1rem 1.5rem; }
   .hero { padding-top: 2.5rem; }
   .nav-list { gap: 0 1rem; }
-  .topbar-end { gap: 0 1rem; }
+  /* Στο κινητό: λογότυπο και επιλογή γλώσσας στην πρώτη γραμμή, πλοήγηση από κάτω */
+  .topbar-end { display: contents; }
+  .lang-switch { order: 1; }
+  .topbar-end > nav:first-child { order: 2; flex-basis: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
