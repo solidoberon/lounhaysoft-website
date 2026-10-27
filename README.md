@@ -1,10 +1,10 @@
-# Lounhaysoft – εταιρική ιστοσελίδα
+# Lounhaysoft – company website
 
-Στατική εταιρική ιστοσελίδα της KARELIOTIS NIKOLAOS ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε., σύμφωνα με το άρθρο 47 του ν. 4072/2012. Φιλοξενείται στο GitHub Pages.
+Static company website of KARELIOTIS NIKOLAOS ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε., as required by Article 47 of Law 4072/2012. Hosted on GitHub Pages.
 
-- `index.html` – η σελίδα
-- `en/index.html` – η αγγλική έκδοση της σελίδας (κάθε αλλαγή στοιχείων γίνεται και στις δύο)
-- `styles.css` – εμφάνιση (σχεδιασμένη κατά WCAG 2.2 AA)
-- `glow.js` – η κόκκινη λάμψη που ακολουθεί τον κέρσορα
-- `logo.svg`, `favicon.svg` – λογότυπο και εικονίδιο
-- `fonts/` – γραμματοσειρά Play (άδεια SIL Open Font License, βλ. `fonts/OFL.txt`)
+- `index.html` – the page (Greek)
+- `en/index.html` – the English version of the page (any change to the company details must be made in both)
+- `styles.css` – styling (designed for WCAG 2.2 AA)
+- `glow.js` – the red glow that follows the cursor
+- `logo.svg`, `favicon.svg` – logo and icon
+- `fonts/` – Play typeface (SIL Open Font License, see `fonts/OFL.txt`)

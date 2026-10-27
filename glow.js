@@ -1,5 +1,5 @@
-// Η κόκκινη λάμψη του hero ακολουθεί τον κέρσορα και επιστρέφει πίσω από το λογότυπο όταν αυτός φύγει.
-// Δεν ενεργοποιείται σε οθόνες αφής ούτε όταν ο χρήστης έχει ζητήσει μειωμένη κίνηση.
+// The hero's red glow follows the cursor and returns behind the logo when the cursor leaves.
+// It stays off on touch screens and when the user has asked for reduced motion.
 (function () {
   var hero = document.querySelector('.hero');
   var logo = document.querySelector('.hero-logo');
