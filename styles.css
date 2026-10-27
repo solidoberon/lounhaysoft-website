@@ -119,10 +119,13 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .nav-list a:hover { color: var(--text); border-bottom-color: var(--red); }
 
+/* Η πλοήγηση ξεκινά δίπλα στο λογότυπο, ώστε να μη μετακινείται όταν αλλάζει η γλώσσα */
 .topbar-end {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 0 1.5rem;
 }
 
