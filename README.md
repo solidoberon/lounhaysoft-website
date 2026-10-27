@@ -4,7 +4,9 @@ Static company website of KARELIOTIS NIKOLAOS ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε., 
 
 - `index.html` – the page (Greek)
 - `en/index.html` – the English version of the page (any change to the company details must be made in both)
+- `financial-statements/` – published balance sheets as PDF, one per financial year (`balance-sheet-YYYY.pdf`), listed newest first on both pages
 - `styles.css` – styling (designed for WCAG 2.2 AA)
 - `glow.js` – the red glow that follows the cursor
+- `topbar.js` – keeps section titles clear of the sticky top bar after a jump
 - `logo.svg`, `favicon.svg` – logo and icon
 - `fonts/` – Play typeface (SIL Open Font License, see `fonts/OFL.txt`)

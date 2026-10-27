@@ -12,8 +12,9 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/play-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/play-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script src="glow.js?v=3" defer></script>
+  <script src="topbar.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -28,7 +29,8 @@
         <nav aria-label="Κύρια πλοήγηση">
           <ul class="nav-list">
             <li><a href="#stoixeia">Στοιχεία</a></li>
-            <li><a href="#anakoinoseis">Ανακοινώσεις</a></li>
+            <li><a href="#oikonomika">Οικονομικά</a></li>
+            <li><a href="#epikoinonia">Επικοινωνία</a></li>
           </ul>
         </nav>
         <nav class="lang-switch" aria-label="Γλώσσα">
@@ -67,7 +69,7 @@
           <div><dt>ΑΦΜ</dt><dd>803114103</dd></div>
           <div><dt>ΔΟΥ</dt><dd>ΚΕΦΟΔΕ Αττικής</dd></div>
           <div><dt>Έδρα</dt><dd>Δήμος Σαρωνικού</dd></div>
-          <div><dt>Διεύθυνση</dt><dd>Ευαγγέλου Καρελιώτη 25, 19010 Αττική</dd></div>
+          <div><dt>Διεύθυνση</dt><dd>Ευαγγέλου Καρελιώτη 25, 19010 Καλύβια Θορικού, Αττική</dd></div>
           <div><dt>Εταιρικό κεφάλαιο</dt><dd>6.000,00 €</dd></div>
           <div><dt>Εγγυητικές εισφορές</dt><dd>Δεν υπάρχουν</dd></div>
           <div><dt>Κατάσταση</dt><dd><span class="status">Ενεργή</span></dd></div>
@@ -76,7 +78,7 @@
         <h3>Εταίροι</h3>
         <dl class="details">
           <div><dt>Ονοματεπώνυμο</dt><dd>Νικόλαος Καρελιώτης</dd></div>
-          <div><dt>Διεύθυνση</dt><dd>Ευαγγέλου Καρελιώτη 27, 19010 Αττική</dd></div>
+          <div><dt>Διεύθυνση</dt><dd>Ευαγγέλου Καρελιώτη 25, 19010 Καλύβια Θορικού, Αττική</dd></div>
           <div><dt>Κατηγορία εισφοράς</dt><dd>Κεφαλαιακή</dd></div>
         </dl>
 
@@ -86,9 +88,21 @@
         </dl>
       </section>
 
-      <section id="anakoinoseis" aria-labelledby="anakoinoseis-title" class="panel">
-        <h2 id="anakoinoseis-title"><span class="idx" aria-hidden="true">02</span>Ανακοινώσεις και αρχεία</h2>
-        <p>Δεν υπάρχουν ανακοινώσεις αυτή τη στιγμή.</p>
+      <section id="oikonomika" aria-labelledby="oikonomika-title" class="panel">
+        <h2 id="oikonomika-title"><span class="idx" aria-hidden="true">02</span>Οικονομικά στοιχεία</h2>
+        <p class="muted">Οι ισολογισμοί της εταιρείας ανά χρήση, με τον πιο πρόσφατο πρώτο.</p>
+        <!-- Newest year first. Each statement is a PDF in financial-statements/, linked from both pages. -->
+        <ul class="docs">
+          <li><a href="financial-statements/balance-sheet-2025.pdf">Ισολογισμός χρήσης 2025</a><span class="tag">PDF</span></li>
+        </ul>
+      </section>
+
+      <section id="epikoinonia" aria-labelledby="epikoinonia-title" class="panel">
+        <h2 id="epikoinonia-title"><span class="idx" aria-hidden="true">03</span>Επικοινωνία</h2>
+        <dl class="details">
+          <div><dt>Email</dt><dd><a href="mailto:kareliotis@hotmail.com">kareliotis@hotmail.com</a></dd></div>
+          <div><dt>Ταχυδρομική διεύθυνση</dt><dd>Ευαγγέλου Καρελιώτη 25, 19010 Καλύβια Θορικού, Αττική</dd></div>
+        </dl>
       </section>
     </div>
   </main>

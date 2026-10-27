@@ -12,8 +12,9 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../fonts/play-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/play-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../styles.css?v=4">
+  <link rel="stylesheet" href="../styles.css?v=5">
   <script src="../glow.js?v=3" defer></script>
+  <script src="../topbar.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -28,7 +29,8 @@
         <nav aria-label="Main navigation">
           <ul class="nav-list">
             <li><a href="#stoixeia">Details</a></li>
-            <li><a href="#anakoinoseis">Announcements</a></li>
+            <li><a href="#oikonomika">Financials</a></li>
+            <li><a href="#epikoinonia">Contact</a></li>
           </ul>
         </nav>
         <nav class="lang-switch" aria-label="Language">
@@ -68,7 +70,7 @@
           <div><dt>VAT number</dt><dd>803114103</dd></div>
           <div><dt>Tax office</dt><dd><span lang="el">ΚΕΦΟΔΕ Αττικής</span> (Attica Tax Procedures and Services Centre)</dd></div>
           <div><dt>Registered seat</dt><dd>Municipality of Saronikos, Attica</dd></div>
-          <div><dt>Address</dt><dd>Evangelou Karelioti 25, 19010 Attica, Greece</dd></div>
+          <div><dt>Address</dt><dd>Evangelou Karelioti 25, 19010 Kalyvia Thorikou, Attica, Greece</dd></div>
           <div><dt>Share capital</dt><dd>€6,000.00</dd></div>
           <div><dt>Guarantee contributions</dt><dd>None</dd></div>
           <div><dt>Status</dt><dd><span class="status">Active</span></dd></div>
@@ -77,7 +79,7 @@
         <h3>Partners</h3>
         <dl class="details">
           <div><dt>Full name</dt><dd>Nikolaos Kareliotis</dd></div>
-          <div><dt>Address</dt><dd>Evangelou Karelioti 27, 19010 Attica, Greece</dd></div>
+          <div><dt>Address</dt><dd>Evangelou Karelioti 25, 19010 Kalyvia Thorikou, Attica, Greece</dd></div>
           <div><dt>Type of contribution</dt><dd>Capital contribution</dd></div>
         </dl>
 
@@ -87,9 +89,21 @@
         </dl>
       </section>
 
-      <section id="anakoinoseis" aria-labelledby="anakoinoseis-title" class="panel">
-        <h2 id="anakoinoseis-title"><span class="idx" aria-hidden="true">02</span>Announcements and documents</h2>
-        <p>There are no announcements at this time.</p>
+      <section id="oikonomika" aria-labelledby="oikonomika-title" class="panel">
+        <h2 id="oikonomika-title"><span class="idx" aria-hidden="true">02</span>Financial statements</h2>
+        <p class="muted">The company's balance sheets by financial year, most recent first. The documents are in Greek.</p>
+        <!-- Newest year first. Each statement is a PDF in financial-statements/, linked from both pages. -->
+        <ul class="docs">
+          <li><a href="../financial-statements/balance-sheet-2025.pdf" hreflang="el">Balance sheet, financial year 2025</a><span class="tag">PDF</span></li>
+        </ul>
+      </section>
+
+      <section id="epikoinonia" aria-labelledby="epikoinonia-title" class="panel">
+        <h2 id="epikoinonia-title"><span class="idx" aria-hidden="true">03</span>Contact</h2>
+        <dl class="details">
+          <div><dt>Email</dt><dd><a href="mailto:kareliotis@hotmail.com">kareliotis@hotmail.com</a></dd></div>
+          <div><dt>Postal address</dt><dd>Evangelou Karelioti 25, 19010 Kalyvia Thorikou, Attica, Greece</dd></div>
+        </dl>
       </section>
     </div>
   </main>

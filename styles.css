@@ -158,8 +158,11 @@ a:hover { text-decoration-thickness: 2px; }
 
 main:focus { outline: none; }
 
-/* Keep section titles clear of the sticky top bar when jumping to them */
-html { scroll-padding-top: 4.5rem; }
+/* Keep section titles clear of the sticky top bar when jumping to them.
+   topbar.js sets --topbar-height to the bar's real height, which grows when the menu wraps;
+   the values here are fallbacks for when the script does not run. */
+:root { --topbar-height: 3rem; }
+html { scroll-padding-top: calc(var(--topbar-height) + 1.5rem); }
 
 /* Hero: grid that fades towards the edges, plus a red glow */
 .hero {
@@ -378,9 +381,12 @@ h3 {
   .panel { padding: 1.25rem 1rem 1.5rem; }
   .hero { padding-top: 2.5rem; }
   .nav-list { gap: 0 1rem; }
-  /* The two-row top bar is taller on phones, so jump targets need more room */
-  html { scroll-padding-top: 8rem; }
-  /* On phones: logo and language switch on the first row, menu below */
+}
+
+/* Below 48rem the logo, menu and language switch no longer fit on one row:
+   logo and language switch go on the first row, menu below */
+@media (max-width: 48rem) {
+  :root { --topbar-height: 6.5rem; }
   .topbar-end { display: contents; }
   .lang-switch { order: 1; }
   .topbar-end > nav:first-child { order: 2; flex-basis: 100%; }
